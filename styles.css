@@ -1,0 +1,565 @@
+/* =========================================================
+   VARIABLES & FUENTES
+   ========================================================= */
+   @font-face {
+    font-family: 'Bahnschrift Custom';
+    src: local('Bahnschrift'), local('Segoe UI'), local('Arial');
+}
+
+:root {
+    /* Configuración de Fuentes */
+    --font-heading: 'Old Standard TT', serif;
+    --font-body: 'Bahnschrift Custom', 'Bahnschrift', 'Segoe UI', sans-serif;
+
+    /* Paleta de Colores Lux & Editorial */
+    --bg-dark: #0b0c10;
+    --bg-card: #12141c;
+    --bg-alt: #0f1117;
+    --accent-gold: #d4af37;
+    --accent-gold-hover: #f3ca40;
+    --whatsapp-color: #25d366;
+    --text-light: #f5f5f7;
+    --text-muted: #a0a5b5;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================================
+   ESTILOS DE TÍTULOS (Old Standard) Y TEXTO (Bahnschrift)
+   ========================================================= */
+h1, h2, h3, .main-title, .section-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+p, a, span, button, th, td {
+    font-family: var(--font-body);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sub-title {
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 10px auto 0;
+}
+
+/* =========================================================
+   NAVBAR & LOGO
+   ========================================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(11, 12, 16, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 45px;
+}
+
+.brand-logo {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    color: var(--accent-gold);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    color: var(--text-light);
+}
+
+.nav-links .btn-nav {
+    border: 1px solid var(--accent-gold);
+    padding: 8px 18px;
+    border-radius: 4px;
+    color: var(--accent-gold);
+}
+
+.nav-links .btn-nav:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-dark);
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 20px 80px;
+    position: relative;
+    background: radial-gradient(circle at 50% 30%, #1f2430 0%, #0b0c10 70%);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    z-index: 2;
+}
+
+.tagline {
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--text-light);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-whatsapp {
+    background-color: transparent;
+    border: 1px solid var(--whatsapp-color);
+    color: var(--whatsapp-color);
+}
+
+.btn-whatsapp:hover {
+    background-color: var(--whatsapp-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+.btn-gold {
+    background-color: var(--accent-gold);
+    color: var(--bg-dark);
+    padding: 16px 40px;
+    font-size: 1.1rem;
+}
+
+.btn-gold:hover {
+    background-color: var(--accent-gold-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* =========================================================
+   MISIÓN Y VISIÓN
+   ========================================================= */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--bg-alt);
+    border-top: 1px solid var(--border-color);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.about-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.4);
+}
+
+.card-tag {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--accent-gold);
+    opacity: 0.5;
+    margin-bottom: 15px;
+}
+
+.about-card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.about-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   SERVICIOS & COMPARATIVA DE PRECIOS
+   ========================================================= */
+.pricing-section {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+}
+
+.pricing-table-wrapper {
+    overflow-x: auto;
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.pricing-table th, 
+.pricing-table td {
+    padding: 22px 25px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-table th {
+    background-color: rgba(255, 255, 255, 0.03);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+}
+
+.pricing-table th.highlight-col {
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--accent-gold);
+}
+
+.pricing-table td:first-child {
+    width: 45%;
+}
+
+.pricing-table td strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.pricing-table td span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.price-old {
+    color: #e74c3c;
+    text-decoration: line-through;
+    font-size: 1rem;
+}
+
+.price-prisma {
+    color: #2ecc71;
+    font-weight: 700;
+    font-size: 1.15rem;
+    background-color: rgba(46, 204, 113, 0.05);
+}
+
+/* =========================================================
+   SECCIÓN DE MEDIOS DE PAGO
+   ========================================================= */
+.payment-section {
+    padding: 90px 0;
+    background-color: var(--bg-alt);
+    border-top: 1px solid var(--border-color);
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.payment-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.payment-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-4px);
+}
+
+.payment-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.payment-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--text-light);
+}
+
+.payment-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   CASO DE ÉXITO (PATALETAS)
+   ========================================================= */
+.case-study {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.case-badge {
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.case-text {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 35px;
+}
+
+/* =========================================================
+   SECCIÓN DE CONTACTO & REDES SOCIALES
+   ========================================================= */
+.contact-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.contact-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.card-link {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 35px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.card-link:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.card-link h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.card-link p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    word-break: break-all;
+}
+
+.card-action {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+    padding: 30px 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* =========================================================
+   RESPONSIVE (ADAPTABILIDAD)
+   ========================================================= */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+
+    .main-title {
+        font-size: 2.3rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pricing-table th, 
+    .pricing-table td {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+    }
+}
